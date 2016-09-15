@@ -1,4 +1,8 @@
+
 /*var translate = require('node-google-translate-skidz');
+=======
+var translate = require('node-google-translate-skidz');
+>>>>>>> 077ab7111640782cf839587244d5b5f82f0c4243
 
 function translator(text,s,t)
 {
@@ -14,6 +18,7 @@ translate({
 });
 return promise;
 };
+<<<<<<< HEAD
 translator("я тебя люблю","ru","en").then(result=>{
 	console.log(result);
 })
@@ -30,5 +35,10 @@ function translator(text,s,t)
 })
 	return promise;
 }
+
+
+/*translator("я тебя люблю","ru","en").then(result=>{
+	console.log(result);
+})*/
 
 module.exports=translator;

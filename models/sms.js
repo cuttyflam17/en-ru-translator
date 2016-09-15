@@ -1,7 +1,8 @@
 var request=require("request");
 
 
-module.exports=function(message,chatId,token,callback){
+module.exports=function(message,chatId,token,type,callback){
+	type=type|| "text/plain";
 	var data={
 	url: "http://api.kamp.kg/chats/" + chatId + "/write",
 	method:"POST",
@@ -9,7 +10,7 @@ module.exports=function(message,chatId,token,callback){
 		'X-Namba-Auth-Token': token
 	},
 	body:{
-		"type":"text/plain",
+		"type":type,
 		"content":message
 	},
 	json: true

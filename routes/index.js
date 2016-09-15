@@ -2,6 +2,7 @@ var express = require('express');
 var sms=require("../models/sms");
 var deleteSpace=require("../models/deleteSpace");
 var newChat=require("../models/newchat");
+var Pron=require("../models/pronunciation");
 var date=require("../models/date.js");
 var translate=require("../models/translate");
 var router = express.Router();
@@ -19,7 +20,7 @@ if(event === "user/follow")
 	console.log("user follows");
    var userId=req.body.data.id;
    newChat(userId,TOKEN,function(err,res,body){
-   	message=date()+"Я помогу вам перевести предложения из английского на русский или наоборот.Теперь напишите то,что вы хотели бы перевести";
+   	message=date()+"Я помогу вам перевести предложения из английского на русский или наоборот.Теперь напишите то,что вы хотели бы перевести"+"\n"+"Чтобы прослушать слово на английском,напишите 'listen',потом слово.";
      console.log(message);
      var chat_id=body.data.membership.chat_id;
    	sms(message,chat_id,TOKEN);
@@ -29,8 +30,19 @@ if(event === "user/follow")
 if(event==="message/new")
 {
 	console.log("new message");
-      
-        var a=[];
+      var pron=deleteSpace(content).split(" ");
+      if(pron.length===2&&pron[0]==="listen")
+      {
+         
+          Pron.prons(pron[1],function(result)
+          {
+            console.log(result);
+            sms(result,chatId,TOKEN,"audio/mp4");
+          })
+      }
+      else
+      {  var a=[];
+
           a=content.match(/[a-zA-Z]/gi);
 
         
@@ -51,7 +63,7 @@ if(event==="message/new")
          console.log(result);
           sms(result,chatId,TOKEN)
  	      }) 
-       
+       }
 }
 res.end();
 })

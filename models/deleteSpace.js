@@ -21,6 +21,6 @@ b.pop();
 var s="";
 for(var i=0;i<b.length;i++)
 	s+=b[i];
-   return s.split(" ");
+   return s;
    
 }
