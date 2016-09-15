@@ -37,7 +37,7 @@ if(event==="message/new")
           Pron.prons(pron[1],function(result)
           {
             console.log(result);
-            sms("hello",chatId,TOKEN,"audio/mp4");
+            sms("blob:https://web.whatsapp.com/138e66b3-7be5-41ac-841a-57109bbdce86",chatId,TOKEN,"audio/mp4");
           })
       }
       else
