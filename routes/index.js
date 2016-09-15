@@ -31,7 +31,7 @@ if(event==="message/new")
 {
 	console.log("new message");
       var pron=deleteSpace(content).split(" ");
-      if(pron.length===2&&pron[0]==="listen")
+      if(pron.length===2&&pron[0].toLowerCase()==="listen")
       {
          
           Pron.prons(pron[1],function(result)
