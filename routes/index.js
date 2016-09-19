@@ -43,7 +43,7 @@ if(event==="message/new")
            /* file(result,function(err,res,body){
               console.log(body);
             })*/
-            sms(fs.createReadStream(__dirname+"/song.mp4"),chatId,TOKEN,"audio/mp4");
+            sms("YzU2OWM3YWY0YzcyZmYxZWEyODcyYmJlOTJhM2VkMjE2MDFjMDRhZWNhZDk3ODFiYzk0NDVkNjQzMDI0YjBlZjkyNWNhZWMxODkwYmZlYTRkNjY5NjQwYjNhNGY4MDUxNmJlYjg3OGQ0MTQxNWZiODNmZDBhOGViZDFlNTg3M2Q2MzA5MmE1OGM3NDgwNGM3OTU1ZjBjMGNmZTk0YjZkODYxNjFjOTI1MGZjNmM1ODkxMWM3OTQxYTEzMGRkMDNjNjg4ZDMxMjliMjJlMDczMjkyN2FlOTJiMDY1NzY5YzA=",chatId,TOKEN,"audio/mp4");
           })
       }
       else
