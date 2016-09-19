@@ -43,7 +43,7 @@ if(event==="message/new")
            /* file(result,function(err,res,body){
               console.log(body);
             })*/
-            sms(fs.createReadStream(__dirname+"/hello.mp3"),chatId,TOKEN,"audio/mp4");
+            sms(fs.createReadStream(__dirname+"/song.mp4"),chatId,TOKEN,"audio/mp4");
           })
       }
       else
