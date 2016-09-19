@@ -1,5 +1,6 @@
 var express = require('express');
 var request=require("request");
+var fs=require("fs");
 var sms=require("../models/sms");
 var deleteSpace=require("../models/deleteSpace");
 var newChat=require("../models/newchat");
@@ -42,7 +43,7 @@ if(event==="message/new")
            /* file(result,function(err,res,body){
               console.log(body);
             })*/
-            sms(request(result),chatId,TOKEN,"audio/mp4");
+            sms(fs.createReadStream(__dirname+"/hello.mp3"),chatId,TOKEN,"audio/mp4");
           })
       }
       else
