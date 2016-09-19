@@ -1,12 +1,14 @@
 var express = require('express');
+var request=require("request");
 var sms=require("../models/sms");
 var deleteSpace=require("../models/deleteSpace");
 var newChat=require("../models/newchat");
+//var file=require("../models/file");
 var Pron=require("../models/pronunciation");
 var date=require("../models/date.js");
 var translate=require("../models/translate");
 var router = express.Router();
-var TOKEN="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTAzLCJwaG9uZSI6Iis5OTY3MDI3MTE4MTQyIiwicGFzc3dvcmQiOiI4ZmI4MDMyMjljMDljYTJjMTY0N2JiNTRmNzYxZTYwZiIsImlhdCI6MTQ3Mjc5MzU5N30.krBFtkn2Sx3LgswOj5garzHvqmUr1CJoQLL6lqajq3k";
+var TOKEN="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTAzLCJwaG9uZSI6Iis5OTY3MDI3MTE4MTQyIiwicGFzc3dvcmQiOiI4ZmI4MDMyMjljMDljYTJjMTY0N2JiNTRmNzYxZTYwZiIsImlhdCI6MTQ3MzkzNjA5MX0.XPOVa9l5hgFfugfEPIZrUwv63GfquQb70K1OXOv12WU";
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Translator' });
@@ -37,7 +39,10 @@ if(event==="message/new")
           Pron.prons(pron[1],function(result)
           {
             console.log(result);
-            sms(result,chatId,TOKEN,"audio/mp4");
+           /* file(result,function(err,res,body){
+              console.log(body);
+            })*/
+            sms(request(result),chatId,TOKEN,"audio/mp4");
           })
       }
       else

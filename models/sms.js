@@ -2,7 +2,7 @@ var request=require("request");
 
 
 module.exports=function(message,chatId,token,type,callback){
-	type=type|| "text/plain";
+	type=type || "text/plain";
 	var data={
 	url: "http://api.kamp.kg/chats/" + chatId + "/write",
 	method:"POST",
