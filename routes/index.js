@@ -4,7 +4,6 @@ var fs=require("fs");
 var sms=require("../models/sms");
 var deleteSpace=require("../models/deleteSpace");
 var newChat=require("../models/newchat");
-//var file=require("../models/file");
 var Pron=require("../models/pronunciation");
 var date=require("../models/date.js");
 var translate=require("../models/translate");
@@ -14,10 +13,13 @@ var TOKEN="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTAzLCJwaG9uZSI6Iis5OTY3
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Translator' });
 });
+
 router.post('/',function(req,res,next){
 var event=req.body.event;
 var chatId=req.body.data.chat_id;
+
     var content=req.body.data.content;
+
 if(event === "user/follow")
 {
 	console.log("user follows");
@@ -37,13 +39,10 @@ if(event==="message/new")
       if(pron.length===2&&pron[0].toLowerCase()==="listen")
       {
          
-          Pron.prons(pron[1],function(result)
+          Pron.prons(pron[1],chatId,function(result)
           {
             console.log(result);
-           /* file(result,function(err,res,body){
-              console.log(body);
-            })*/
-            sms("YzU2OWM3YWY0YzcyZmYxZWEyODcyYmJlOTJhM2VkMjE2MDFjMDRhZWNhZDk3ODFiYzk0NDVkNjQzMDI0YjBlZjkyNWNhZWMxODkwYmZlYTRkNjY5NjQwYjNhNGY4MDUxNmJlYjg3OGQ0MTQxNWZiODNmZDBhOGViZDFlNTg3M2Q2MzA5MmE1OGM3NDgwNGM3OTU1ZjBjMGNmZTk0YjZkODYxNjFjOTI1MGZjNmM1ODkxMWM3OTQxYTEzMGRkMDNjNjg4ZDMxMjliMjJlMDczMjkyN2FlOTJiMDY1NzY5YzA=",chatId,TOKEN,"audio/mp4");
+            sms(result,chatId,TOKEN,"audio/mp4");
           })
       }
       else
