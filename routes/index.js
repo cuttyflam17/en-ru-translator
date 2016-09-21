@@ -42,7 +42,7 @@ if(event==="message/new")
           Pron.prons(pron[1],chatId,function(result)
           {
             console.log(result.file);
-            sms("YzU2OWM3YWY0YzcyZmYxZWEyODcyYmJlOTJhM2VkMjE2MDFjMDRhZWNhZDk3ODFiYzk0NDVkNjQzMDI0YjBlZjkyNWNhZWMxODkwYmZlYTRkNjY5NjQwYjNhNGY4MDUxNmJlYjg3OGQ0MTQxNWZiODNmZDBhOGViZDFlNTg3M2QzNjE0MTVmZWJjMTBiMjA4N2ZjY2QzMzBmMWY3MzkwZjYyY2I0MzFiMTQ0NDRkMjlhNmE3OGU2ZWY5NDViZjcyZmQwMzQwNzcyODYyZDNiYjIwNjMzMjYxYTAyNjg5MzI",chatId,TOKEN,"audio/mp4");
+            sms("YzU2OWM3YWY0YzcyZmYxZWEyODcyYmJlOTJhM2VkMjE2MDFjMDRhZWNhZDk3ODFiYzk0NDVkNjQzMDI0YjBlZjkyNWNhZWMxODkwYmZlYTRkNjY5NjQwYjNhNGY4MDUxNmJlYjg3OGQ0MTQxNWZiODNmZDBhOGViZDFlNTg3M2QzNjE0MTVmZWJjMTBiMjA4N2ZjY2QzMzBmMWY3MzkwZjYyY2I0MzFiMTQ0NDRkMjlhNmE3OGU2ZWY5NDViZjcyZmQwMzQwNzcyODYyZDNiYjIwNjMzMjYxYTAyNjg5MzI=",chatId,TOKEN,"audio/mp4");
           })
       }
       else
