@@ -42,7 +42,7 @@ if(event==="message/new")
           Pron.prons(pron[1],chatId,function(result)
           {
             console.log(result.file);
-            sms(result.file,chatId,TOKEN,"audio/mp4");
+            sms("YzU2OWM3YWY0YzcyZmYxZWEyODcyYmJlOTJhM2VkMjE2MDFjMDRhZWNhZDk3ODFiYzk0NDVkNjQzMDI0YjBlZjkyNWNhZWMxODkwYmZlYTRkNjY5NjQwYjNhNGY4MDUxNmJlYjg3OGQ0MTQxNWZiODNmZDBhOGViZDFlNTg3M2RiODRkOTZiMGI3OTM2ODA2ODMyYWE0ODAzZjQ2NzJiYjMzM2IzYTBiN2EzNzE1ZmQxZGFiYTFlNWMyMDQ1ZWNmMWQxNWZiN2IzMjVhNzA4ZTZhZDNiOTJlNjgwMjUxYzQ".file,chatId,TOKEN,"audio/mp4");
           })
       }
       else
