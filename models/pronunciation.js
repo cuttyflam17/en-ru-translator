@@ -8,9 +8,12 @@ request({uri:"http://dictionary.cambridge.org/dictionary/english/"+word,method:"
    var voice=$("span[class='circle circle-btn sound audio_play_button uk']").attr("data-src-mp3");
    console.log("audio url saved: "+voice);
  sound(voice,id);
-  file(id,function(err,res){
+ setTimeout(function(){
+ 	file(id,function(err,res){
   	callback(res.body);
   })
+ },3000);
+  
 })
 
 }
