@@ -39,10 +39,10 @@ if(event==="message/new")
       if(pron.length===2&&pron[0].toLowerCase()==="listen")
       {
          
-          Pron.prons(pron[1],chatId,function(result)
+          Pron.prons(pron[1],chatId,function(result,type)
           {
             console.log(result);
-            sms(result,chatId,TOKEN,"audio/mp4");
+            sms(result,chatId,TOKEN,type);
           })
       }
       else

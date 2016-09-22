@@ -8,14 +8,15 @@ request({uri:"http://dictionary.cambridge.org/dictionary/english/"+word,method:"
    var voice=$("span[class='circle circle-btn sound audio_play_button uk']").attr("data-src-mp3");
    if(voice===undefined)
    {
-   	callback("Неправильный ввод или такого слова на английском не существует.");
+   	
+   	callback("Неправильный ввод или такого слова на английском не существует.","");
    }
    else{
    console.log("audio url saved: "+voice);
  sound(voice,id);
  setTimeout(function(){
  	file(id,function(err,res){
-  	callback(res.body.file);
+  	callback(res.body.file,"audio/mp4");
   })
  },3000);
   }
