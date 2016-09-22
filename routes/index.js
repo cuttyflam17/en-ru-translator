@@ -52,7 +52,7 @@ if(event==="message/new")
         console.log(errmessage);
         sms(errmessage,chatId,TOKEN);
       }
-      else if(req.body.data.type==="audio/mp4")
+      else if(req.body.data.type==="audio/mp4"||req.body.data.type==="video/mp4")
       {
         sms("Неправильный ввод или такого слова на английском не существует.Пожалуйста введите текст.",chatId,TOKEN);
       }
