@@ -41,8 +41,8 @@ if(event==="message/new")
          
           Pron.prons(pron[1],chatId,function(result)
           {
-            console.log(result.file);
-            sms(result.file,chatId,TOKEN,"audio/mp4");
+            console.log(result);
+            sms(result,chatId,TOKEN,"audio/mp4");
           })
       }
       else

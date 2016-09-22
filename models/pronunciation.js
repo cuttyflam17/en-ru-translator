@@ -6,14 +6,19 @@ exports.prons=function(word,id,callback){
 request({uri:"http://dictionary.cambridge.org/dictionary/english/"+word,method:"GET",encoding:"binary"},function(err,res,page){
    var $=cheerio.load(page,{decodeEntities:false});
    var voice=$("span[class='circle circle-btn sound audio_play_button uk']").attr("data-src-mp3");
+   if(voice===undefined)
+   {
+   	callback("Неправильный ввод или такого слова на английском не существует.");
+   }
+   else{
    console.log("audio url saved: "+voice);
  sound(voice,id);
  setTimeout(function(){
  	file(id,function(err,res){
-  	callback(res.body);
+  	callback(res.body.file);
   })
  },3000);
-  
+  }
 })
 
 }
