@@ -25,7 +25,7 @@ if(event === "user/follow")
 	console.log("user follows");
    var userId=req.body.data.id;
    newChat(userId,TOKEN,function(err,res,body){
-   	message=date()+"Я помогу вам перевести предложения из английского на русский или наоборот.Теперь напишите то,что вы хотели бы перевести"+"\n"+"Чтобы прослушать слово на английском,напишите 'listen',потом слово.";
+   	message=date()+"Я помогу вам перевести предложения из английского на русский или наоборот.Теперь напишите то,что вы хотели бы перевести"+"\n"+"Чтобы прослушать слово на английском,напишите '/listen',потом слово.";
      console.log(message);
      var chat_id=body.data.membership.chat_id;
    	sms(message,chat_id,TOKEN);
@@ -36,7 +36,8 @@ if(event==="message/new")
 {
 	console.log("new message");
       var pron=deleteSpace(content).split(" ");
-      if(pron.length===2&&pron[0].toLowerCase()==="listen")
+
+      if(pron.length===2&&pron[0].toLowerCase()==="/listen")
       {
          
           Pron.prons(pron[1],chatId,function(result,type)
@@ -44,6 +45,12 @@ if(event==="message/new")
             console.log(result);
             sms(result,chatId,TOKEN,type);
           })
+      }
+      else if(pron[0].toLowerCase()==="/listen"&&pron.length!=2)
+      {
+        var errmessage="Введите как на примере:'/listen hello'";
+        console.log(errmessage);
+        sms(errmessage,chatId,TOKEN);
       }
       else
       {  var a=[];
