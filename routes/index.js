@@ -52,6 +52,10 @@ if(event==="message/new")
         console.log(errmessage);
         sms(errmessage,chatId,TOKEN);
       }
+      else if(req.body.data.type==="audio/mp4")
+      {
+        sms("Пожалуйста введите текст.",chatId,TOKEN);
+      }
       else
       {  var a=[];
 
