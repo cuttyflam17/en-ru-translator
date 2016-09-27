@@ -42,7 +42,7 @@ if(event==="message/new")
          
           Pron.prons(pron[1],chatId,function(result,type)
           {
-            console.log(result);
+            console.log(result+"\n"+"chat id="+chatId);
             sms(result,chatId,TOKEN,type);
           })
       }
