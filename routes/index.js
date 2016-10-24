@@ -25,7 +25,7 @@ if(event === "user/follow")
 	console.log("user follows");
    var userId=req.body.data.id;
    newChat(userId,TOKEN,function(err,res,body){
-   	message=date()+"Я помогу вам перевести предложения из английского на русский или наоборот.Теперь напишите то,что вы хотели бы перевести"+"\n"+"Чтобы прослушать слово на английском,напишите '/listen',потом слово."+"\n"+"Переводит сервисом «Яндекс.Переводчик»";
+   	message=date()+"Я помогу Вам перевести предложения с английского на русский или наоборот. Пожалуйста, введите то, что Вы хотели бы перевести"+"\n"+" Чтобы прослушать слово на английском, пожалуйста, напишите '/listen',потом слово."+"\n"+" Перевод осуществляется сервисом «Яндекс. Переводчик»";
      console.log(message);
      var chat_id=body.data.membership.chat_id;
    	sms(message,chat_id,TOKEN);
@@ -54,7 +54,7 @@ if(event==="message/new")
       }
       else if(req.body.data.type==="audio/mp4"||req.body.data.type==="video/mp4"||req.body.data.type==="media/image")
       {
-        sms("Неправильный ввод или такого слова на английском не существует.Пожалуйста введите текст.",chatId,TOKEN);
+        sms("Неправильный ввод или такого слова в интересующем Вас языке не существует. Пожалуйста, введите текст.",chatId,TOKEN);
       }
       else
       {  var a=[];
