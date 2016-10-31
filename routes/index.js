@@ -8,7 +8,7 @@ var Pron=require("../models/pronunciation");
 var date=require("../models/date.js");
 var translate=require("../models/translate");
 var router = express.Router();
-var TOKEN="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTAzLCJwaG9uZSI6Iis5OTY3MDI3MTE4MTQyIiwicGFzc3dvcmQiOiI4ZmI4MDMyMjljMDljYTJjMTY0N2JiNTRmNzYxZTYwZiIsImlhdCI6MTQ3MzkzNjA5MX0.XPOVa9l5hgFfugfEPIZrUwv63GfquQb70K1OXOv12WU";
+var TOKEN="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTAzLCJwaG9uZSI6Iis5OTY3MDI3MTE4MTQyIiwicGFzc3dvcmQiOiI4ZmI4MDMyMjljMDljYTJjMTY0N2JiNTRmNzYxZTYwZiIsImlzQm90Ijp0cnVlLCJjb3VudHJ5Ijp0cnVlLCJpYXQiOjE0Nzc5MTYwNzN9.z1a5U5v9IDOByIXWnsyhpKJu0wUAkwXd8DxO2w80e78";
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Translator' });
