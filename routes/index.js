@@ -27,7 +27,7 @@ if(event === "user/follow")
    newChat(userId,TOKEN,function(err,res,body){
    	message=date()+"Я помогу Вам перевести предложения с английского на русский или наоборот. Пожалуйста, введите то, что Вы хотели бы перевести"+"\n"+" Чтобы прослушать слово на английском, пожалуйста, напишите '/listen',потом слово."+"\n"+" Перевод осуществляется сервисом «Яндекс. Переводчик»";
      console.log(message);
-     var chat_id=body.data.membership.chat_id;
+     var chat_id=body.data.id;
    	sms(message,chat_id,TOKEN);
    })
 }
