@@ -1,4 +1,4 @@
-var express = require('express');
+﻿var express = require('express');
 var request=require("request");
 var fs=require("fs");
 var sms=require("../models/sms");
@@ -52,7 +52,7 @@ if(event==="message/new")
         console.log(errmessage);
         sms(errmessage,chatId,TOKEN);
       }
-      else if(req.body.data.type==="audio/mp4"||req.body.data.type==="video/mp4"||req.body.data.type==="media/image")
+      else if(req.body.data.type != "text/plain")
       {
         sms("Неправильный ввод или такого слова в интересующем Вас языке не существует. Пожалуйста, введите текст.",chatId,TOKEN);
       }
