@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/',function(req,res,next){
+  var ip = req.connection.remoteAddress;
 var event=req.body.event;
 var chatId=req.body.data.chat_id;
 
@@ -24,11 +25,11 @@ if(event === "user/follow")
 {
 	console.log("user follows");
    var userId=req.body.data.id;
-   newChat(userId,TOKEN,function(err,res,body){
+   newChat(userId,TOKEN, ip, function(err,res,body){
    	message=date()+"Я помогу Вам перевести предложения с английского на русский или наоборот. Пожалуйста, введите то, что Вы хотели бы перевести"+"\n"+" Чтобы прослушать слово на английском, пожалуйста, напишите '/listen',потом слово."+"\n"+" Перевод осуществляется сервисом «Яндекс. Переводчик»";
      console.log(message);
      var chat_id=body.data.id;
-   	sms(message,chat_id,TOKEN);
+   	sms(message,chat_id,TOKEN, null, ip);
    })
 }
 
@@ -43,18 +44,18 @@ if(event==="message/new")
           Pron.prons(pron[1],chatId,function(result,type)
           {
             console.log(result+"\n"+"chat id="+chatId);
-            sms(result,chatId,TOKEN,type);
+            sms(result,chatId,TOKEN,type, ip);
           })
       }
       else if(pron[0].toLowerCase()==="/listen"&&pron.length!=2)
       {
         var errmessage="Введите как на примере:'/listen hello'";
         console.log(errmessage);
-        sms(errmessage,chatId,TOKEN);
+        sms(errmessage,chatId,TOKEN, null, ip);
       }
       else if(req.body.data.type != "text/plain")
       {
-        sms("Неправильный ввод или такого слова в интересующем Вас языке не существует. Пожалуйста, введите текст.",chatId,TOKEN);
+        sms("Неправильный ввод или такого слова в интересующем Вас языке не существует. Пожалуйста, введите текст.",chatId,TOKEN, null, ip);
       }
       else
       {  var a=[];
@@ -77,7 +78,7 @@ if(event==="message/new")
          translate(content,source,target).then(
  	     result=>{
          console.log(result);
-          sms(result,chatId,TOKEN)
+          sms(result,chatId,TOKEN, null, ip);
  	      }) 
        }
 }
