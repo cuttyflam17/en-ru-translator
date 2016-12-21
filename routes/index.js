@@ -41,8 +41,7 @@ if(event==="message/new")
       if(pron.length===2&&pron[0].toLowerCase()==="/listen")
       {
          
-          Pron.prons(pron[1],chatId,function(result,type)
-          {
+          Pron.prons(pron[1],chatId, ip, function(result,type) {
             console.log(result+"\n"+"chat id="+chatId);
             sms(result,chatId,TOKEN,type, ip);
           })
