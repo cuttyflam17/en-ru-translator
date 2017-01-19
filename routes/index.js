@@ -29,7 +29,7 @@ if(event === "user/follow")
    	message=date()+"Я помогу Вам перевести предложения с английского на русский или наоборот. Пожалуйста, введите то, что Вы хотели бы перевести"+"\n"+" Чтобы прослушать слово на английском, пожалуйста, напишите '/listen',потом слово."+"\n"+" Перевод осуществляется сервисом «Яндекс. Переводчик»";
      console.log(message);
      var chat_id=body.data.id;
-   	sms(message,chat_id,TOKEN, null, ip);
+   	sms(message,chat_id,TOKEN, ip);
    })
 }
 
@@ -50,11 +50,11 @@ if(event==="message/new")
       {
         var errmessage="Введите как на примере:'/listen hello'";
         console.log(errmessage);
-        sms(errmessage,chatId,TOKEN, null, ip);
+        sms(errmessage,chatId,TOKEN, ip);
       }
       else if(req.body.data.type != "text/plain")
       {
-        sms("Неправильный ввод или такого слова в интересующем Вас языке не существует. Пожалуйста, введите текст.",chatId,TOKEN, null, ip);
+        sms("Неправильный ввод или такого слова в интересующем Вас языке не существует. Пожалуйста, введите текст.",chatId,TOKEN, ip);
       }
       else
       {  var a=[];
@@ -77,7 +77,7 @@ if(event==="message/new")
          translate(content,source,target).then(
  	     result=>{
          console.log(result);
-          sms(result,chatId,TOKEN, null, ip);
+          sms(result,chatId,TOKEN, ip);
  	      }) 
        }
 }
