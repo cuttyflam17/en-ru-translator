@@ -6,7 +6,7 @@ module.exports=function(id, ip, callback){
     url = "http://77.235.20.133:3040"
   }
   else {
-    url = "http://files.kamp.kg";
+    url = "https://files.namba1.co";
    }
 request.post(url)
 .attach("file",__dirname+"/../sounds/"+id+".mp4").end(callback);
