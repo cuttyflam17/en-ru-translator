@@ -2,7 +2,8 @@
 var request=require("request");
 
 
-module.exports=function(message, chatId, token, ip, callback){
+module.exports=function(message, chatId, token,type, ip, callback){
+	type=type || "text/plain";
 	if(ip === "::ffff:77.235.20.133") {
     url = "http://77.235.20.133:3000/chats/"
   }
@@ -15,7 +16,7 @@ module.exports=function(message, chatId, token, ip, callback){
 		'X-Namba-Auth-Token': token
 	},
 	body:{
-		"type":"text/plain",
+		"type":type,
 		"content":message
 	},
 	json: true
