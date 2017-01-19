@@ -54,7 +54,7 @@ if(event==="message/new")
       }
       else if(req.body.data.type != "text/plain")
       {
-        sms("Неправильный ввод или такого слова в интересующем Вас языке не существует. Пожалуйста, введите текст.",chatId,TOKEN, ip);
+        sms("Неправильный ввод или такого слова в интересующем Вас языке не существует. Пожалуйста, введите текст.",chatId,TOKEN, null, ip);
       }
       else
       {  var a=[];
@@ -77,7 +77,7 @@ if(event==="message/new")
          translate(content,source,target).then(
  	     result=>{
          console.log(result);
-          sms(result,chatId,TOKEN,null ip);
+          sms(result,chatId,TOKEN,null,ip);
  	      }) 
        }
 }
