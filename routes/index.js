@@ -21,7 +21,7 @@ router.post('/',function(req,res,next){
 })
 
 router.post('/kz', function(req, res, next) {
-  token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6OTcwMDI0OTU2LCJwaG9uZSI6IjEyMzQ1NjY3IiwicGFzc3dvcmQiOiIkMmEkMTAkN0NFM2JKa3REYWJvWFpmSTA1U1ZBTzhjWERRQWpOdFRXUU5NbkFicGFmRXRwUC5mdEVtTnEiLCJpc0JvdCI6dHJ1ZSwiY291bnRyeSI6dHJ1ZSwiaWF0IjoxNDg5NjYzMTA3fQ.2PTaPhjNXGTkvmT7wdd23u9Zj2LZRp_Hj0d-9wIMA0o';
+  token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NjY5OTg5ODQ2LCJwaG9uZSI6IjEwNzYiLCJwYXNzd29yZCI6IiQyYSQxMCRxNmx3RUNaZzFEbFBTQ1lMbmoya1R1WVd4WmVQU1FnZG1hbVcxRkR6ZEtaM2JGRnlIaTBZTyIsImlzQm90Ijp0cnVlLCJjb3VudHJ5Ijp0cnVlLCJpYXQiOjE0OTgwMzQ5MTB9.rglpIHxr2QXRBc9ohifjEABaPPWnufWF8cQr2cofrDg';
   eventControl(req, res, token);
 })
 
